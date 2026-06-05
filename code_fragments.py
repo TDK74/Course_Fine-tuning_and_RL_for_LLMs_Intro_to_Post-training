@@ -1,3 +1,16 @@
+def get_function_names(path):
+    with open(path, 'r') as f:
+        lines = f.readlines()
+
+    function_names = []
+
+    for line in lines:
+        if line.startswith('def'):
+            function_names.append(line.split('(')[0].split(' ')[1])
+
+    return function_names
+
+## ------------------------------------------------------ ##
 BASE_MODEL = "deepseek-ai/deepseek-math-7b-base"
 FINETUNED_MODEL = "deepseek-ai/deepseek-math-7b-instruct"
 RL_MODEL = "deepseek-ai/deepseek-math-7b-rl"
